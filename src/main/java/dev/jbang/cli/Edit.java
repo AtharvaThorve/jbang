@@ -27,6 +27,10 @@ public class Edit extends BaseScriptCommand {
 
 	@Override
 	public Integer doCall() throws IOException {
+		if (insecure) {
+			enableInsecure();
+		}
+
 		script = prepareScript(scriptOrFile, userParams, null);
 		File project = createProjectForEdit(script, false);
 		// err.println(project.getAbsolutePath());
